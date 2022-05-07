@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "pry"
 require "char_detector"
 
 RSpec.configure do |config|
