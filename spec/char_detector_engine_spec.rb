@@ -4,54 +4,54 @@ RSpec.describe CharDetector::Engine do
   end
 
   it "scans sample0.txt and gets empty array" do
-    filepath = "spec/samples/sample0.txt"
+    file = "spec/samples/sample0.txt"
     expected = []
 
-    expect(subject.scan(filepath)).to eq(expected)
+    expect(subject.scan(file)).to eq(expected)
   end
 
   it "scans sample1.txt" do
-    filepath = "spec/samples/sample1.txt"
+    file = "spec/samples/sample1.txt"
     expected = [
-      {:filepath=>"spec/samples/sample1.txt", :line=>1, :columns=>[11]}
+      {:file=>"spec/samples/sample1.txt", :line=>1, :columns=>[11]}
     ]
 
-    expect(subject.scan(filepath)).to eq(expected)
+    expect(subject.scan(file)).to eq(expected)
   end
 
   it "scans sample2.txt" do
-    filepath = "spec/samples/sample2.txt"
+    file = "spec/samples/sample2.txt"
     expected = [
-      {:filepath=>"spec/samples/sample2.txt", :line=>4, :columns=>[13]}
+      {:file=>"spec/samples/sample2.txt", :line=>4, :columns=>[13]}
     ]
 
-    expect(subject.scan(filepath)).to eq(expected)
+    expect(subject.scan(file)).to eq(expected)
   end
 
   it "scans sample3.txt" do
-    filepath = "spec/samples/sample3.txt"
+    file = "spec/samples/sample3.txt"
     expected = [
-      {:filepath=>"spec/samples/sample3.txt", :line=>4, :columns=>[33]},
-      {:filepath=>"spec/samples/sample3.txt", :line=>6, :columns=>[3]}
+      {:file=>"spec/samples/sample3.txt", :line=>4, :columns=>[33]},
+      {:file=>"spec/samples/sample3.txt", :line=>6, :columns=>[3]}
     ]
 
-    expect(subject.scan(filepath)).to eq(expected)
+    expect(subject.scan(file)).to eq(expected)
   end
 
   it "scans sample4.txt" do
-    filepath = "spec/samples/sample4.txt"
+    file = "spec/samples/sample4.txt"
     expected = [
-      {:filepath=>"spec/samples/sample4.txt", :line=>3, :columns=>[45]}
+      {:file=>"spec/samples/sample4.txt", :line=>3, :columns=>[45]}
     ]
-    expect(subject.scan(filepath)).to eq(expected)
+    expect(subject.scan(file)).to eq(expected)
   end
 
   it "scans sample5.txt" do
-    filepath = "spec/samples/sample5.txt"
+    file = "spec/samples/sample5.txt"
     expected = [
-      {:filepath=>"spec/samples/sample5.txt", :line=>5, :columns=>[15,30]},
-      {:filepath=>"spec/samples/sample5.txt", :line=>6, :columns=>[15]}
+      {:file=>"spec/samples/sample5.txt", :line=>5, :columns=>[15,30]},
+      {:file=>"spec/samples/sample5.txt", :line=>6, :columns=>[15]}
     ]
-    expect(subject.scan(filepath)).to eq(expected)
+    expect(subject.scan(file)).to eq(expected)
   end
 end
