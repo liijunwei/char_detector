@@ -1,15 +1,21 @@
 require "char_detector"
 
 RSpec.describe CharDetector::Engine do
+  subject { described_class.new(file: file) }
+  let(:file) { "foobar" }
+
   it "#scan" do
     expect(subject).to respond_to(:scan)
   end
 
-  it "scans sample0.txt and gets empty array" do
-    file = "spec/samples/sample0.txt"
-    expected = []
+  context "when scan a normal file" do
+    let(:file) { "spec/samples/sample0.txt" }
 
-    expect(subject.scan(file)).to eq(expected)
+    it "gets empty array" do
+      expected = []
+
+      expect(subject.scan(file)).to eq(expected)
+    end
   end
 
   it "scans sample1.txt" do

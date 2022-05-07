@@ -1,4 +1,7 @@
 class CharDetector::Engine
+  def initialize(file:)
+  end
+
   def scan(file)
     matches = []
 
