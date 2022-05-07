@@ -18,48 +18,66 @@ RSpec.describe CharDetector::Engine do
     end
   end
 
-  it "scans sample1.txt" do
-    file = "spec/samples/sample1.txt"
-    expected = [
-      {:line=>1, :columns=>[11]}
-    ]
+  context "when scan a file with one target char exists at line ending(1)" do
+    let(:file) { "spec/samples/sample1.txt" }
 
-    expect(subject.scan(file)).to eq(expected)
+    it "gets expected array" do
+      expected = [
+        {:line=>1, :columns=>[11]}
+      ]
+
+      expect(subject.scan(file)).to eq(expected)
+    end
   end
 
-  it "scans sample2.txt" do
-    file = "spec/samples/sample2.txt"
-    expected = [
-      {:line=>4, :columns=>[13]}
-    ]
 
-    expect(subject.scan(file)).to eq(expected)
+  context "when scan a file with one target char exists at line ending(2)" do
+    let(:file) { "spec/samples/sample2.txt" }
+
+    it "gets expected array" do
+      expected = [
+        {:line=>4, :columns=>[13]}
+      ]
+
+      expect(subject.scan(file)).to eq(expected)
+    end
   end
 
-  it "scans sample3.txt" do
-    file = "spec/samples/sample3.txt"
-    expected = [
-      {:line=>4, :columns=>[33]},
-      {:line=>6, :columns=>[3]}
-    ]
+  context "when scan a file with two target chars exists in middle of line" do
+    let(:file) { "spec/samples/sample3.txt" }
 
-    expect(subject.scan(file)).to eq(expected)
+    it "gets expected array" do
+      expected = [
+        {:line=>4, :columns=>[33]},
+        {:line=>6, :columns=>[3]}
+      ]
+
+      expect(subject.scan(file)).to eq(expected)
+    end
   end
 
-  it "scans sample4.txt" do
-    file = "spec/samples/sample4.txt"
-    expected = [
-      {:line=>3, :columns=>[45]}
-    ]
-    expect(subject.scan(file)).to eq(expected)
+  context "when scan a file with one target char exists in middle of line" do
+    let(:file) { "spec/samples/sample4.txt" }
+
+    it "gets expected array" do
+      expected = [
+        {:line=>3, :columns=>[45]}
+      ]
+
+      expect(subject.scan(file)).to eq(expected)
+    end
   end
 
-  it "scans sample5.txt" do
-    file = "spec/samples/sample5.txt"
-    expected = [
-      {:line=>5, :columns=>[15,30]},
-      {:line=>6, :columns=>[15]}
-    ]
-    expect(subject.scan(file)).to eq(expected)
+  context "when scan a file with three target char exists in middle of line" do
+    let(:file) { "spec/samples/sample5.txt" }
+
+    it "gets expected array" do
+      expected = [
+        {:line=>5, :columns=>[15,30]},
+        {:line=>6, :columns=>[15]}
+      ]
+
+      expect(subject.scan(file)).to eq(expected)
+    end
   end
 end
