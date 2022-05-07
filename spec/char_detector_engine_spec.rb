@@ -77,4 +77,20 @@ RSpec.describe CharDetector::Engine do
       expect(subject.scan).to eq(expected)
     end
   end
+
+  context "when scanning a directory" do
+    let(:file) { "spec/samples/" }
+
+    it "gets expected hash" do
+      expected = {
+        "spec/samples/sample0.txt" => [],
+        "spec/samples/sample2.txt" => [{:line=>4, :columns=>[13]}],
+        "spec/samples/sample4.txt" => [{:line=>3, :columns=>[45]}],
+        "spec/samples/sample3.txt" => [{:line=>4, :columns=>[33]},{:line=>6, :columns=>[3]}],
+        "spec/samples/sample5.txt" => [{:line=>5, :columns=>[15,30]},{:line=>6, :columns=>[15]}]
+      }
+
+      expect(subject.scan_folder).to eq(expected)
+    end
+  end
 end
