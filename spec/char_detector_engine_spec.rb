@@ -4,7 +4,16 @@ RSpec.describe CharDetector::Engine do
   end
 
   it "scans sample0.txt and matches empty array" do
-    sample = "spec/samples/sample0.txt"
-    expect(subject.scan(sample)).to eq([])
+    filepath = "spec/samples/sample0.txt"
+    expect(subject.scan(filepath)).to eq([])
+  end
+
+  it "scans sample3.txt and matches" do
+    filepath = "spec/samples/sample3.txt"
+    expected = [
+      {:filepath=>"spec/samples/sample3.txt", :line=>4, :column=>33, :content=>"搞不明白, 为什么utf-8编码的文件里会包含ASCII编码的 \u0000(NUL)"},
+      {:filepath=>"spec/samples/sample3.txt", :line=>6, :column=>3,  :content=>"1 \b(BS)"}
+    ]
+    expect(subject.scan(filepath)).to eq(expected)
   end
 end
