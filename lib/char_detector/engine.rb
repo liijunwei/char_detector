@@ -7,7 +7,6 @@ class CharDetector::Engine
       next if scanned.empty?
 
       hash = {}
-      hash[:file]    = file
       hash[:line]    = index + 1
       hash[:columns] = scanned.map { |e| line.index(e)+1 }
 
