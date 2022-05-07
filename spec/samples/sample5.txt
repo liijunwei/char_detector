@@ -1,0 +1,8 @@
+normal line
+normal line
+normal line
+normal line
+|Contact| Y | string | 模式，参见下面的`模式列表` |
+|Number | N | string | 号码 |
+normal line
+normal line
