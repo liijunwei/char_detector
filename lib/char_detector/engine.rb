@@ -1,5 +1,5 @@
 class CharDetector::Engine
-  def initialize(file: 'TODO')
+  def initialize(file:)
     @file = file
   end
 
