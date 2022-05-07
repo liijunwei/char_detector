@@ -3,9 +3,7 @@ class CharDetector::Engine
     matches = []
 
     File.readlines(file).each_with_index do |line, index|
-      scanned = line.scan(/\p{Cntrl}/)
-      scanned = scanned.reject { |e| line.index(e)+1 == line.length }
-
+      scanned = trim_newline(line).scan(/\p{Cntrl}/)
       next if scanned.empty?
 
       hash = {}
@@ -17,5 +15,9 @@ class CharDetector::Engine
     end
 
     return matches
+  end
+
+  def trim_newline(line)
+    line[...-1]
   end
 end
