@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "char_detector"
+require 'optparse'
+require 'pry'
+require 'json'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: char_detector [options]"
+
+  opts.on("-f FILE", "--file FILE", "file to scan") do |v|
+    options[:file] = v
+  end
+end.parse!
+
+jj CharDetector::Engine.new.scan options[:file]
