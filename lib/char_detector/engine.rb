@@ -3,14 +3,15 @@ class CharDetector::Engine
     matches = []
 
     File.readlines(filepath).each_with_index do |line, index|
-      column = line.strip =~ /\p{Cntrl}/
+      scanned = line.scan(/\p{Cntrl}/)
+      scanned = scanned.reject { |e| line.index(e)+1 == line.length }
 
-      next if column.nil?
+      next if scanned.empty?
 
       hash = {}
       hash[:filepath] = filepath
       hash[:line]     = index + 1
-      hash[:column]   = column + 1
+      hash[:columns]  = scanned.map { |e| line.index(e)+1 }
       hash[:content]  = line.strip
 
       matches << hash
