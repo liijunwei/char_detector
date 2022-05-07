@@ -1,11 +1,16 @@
 class CharDetector::Engine
-  def initialize(file:)
+  def initialize(file: 'TODO')
+    @file = file
   end
 
-  def scan(file)
+  attr_reader :file
+
+  def scan(arg_file = 'TODO')
     matches = []
 
-    File.readlines(file).each_with_index do |line, index|
+    arg_file = file
+
+    File.readlines(arg_file).each_with_index do |line, index|
       scanned = trim_newline(line).scan(/\p{Cntrl}/)
       next if scanned.empty?
 

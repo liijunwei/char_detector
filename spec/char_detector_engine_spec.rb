@@ -14,7 +14,7 @@ RSpec.describe CharDetector::Engine do
     it "gets empty array" do
       expected = []
 
-      expect(subject.scan(file)).to eq(expected)
+      expect(subject.scan).to eq(expected)
     end
   end
 
@@ -26,7 +26,7 @@ RSpec.describe CharDetector::Engine do
         {:line=>4, :columns=>[13]}
       ]
 
-      expect(subject.scan(file)).to eq(expected)
+      expect(subject.scan).to eq(expected)
     end
 
     it "is treated as binary file since it contains null byte" do
@@ -43,7 +43,7 @@ RSpec.describe CharDetector::Engine do
         {:line=>3, :columns=>[45]}
       ]
 
-      expect(subject.scan(file)).to eq(expected)
+      expect(subject.scan).to eq(expected)
     end
 
     it "is treated as normal file since it does not contain null byte" do
@@ -61,7 +61,7 @@ RSpec.describe CharDetector::Engine do
         {:line=>6, :columns=>[3]}
       ]
 
-      expect(subject.scan(file)).to eq(expected)
+      expect(subject.scan).to eq(expected)
     end
   end
 
@@ -74,7 +74,7 @@ RSpec.describe CharDetector::Engine do
         {:line=>6, :columns=>[15]}
       ]
 
-      expect(subject.scan(file)).to eq(expected)
+      expect(subject.scan).to eq(expected)
     end
   end
 end
