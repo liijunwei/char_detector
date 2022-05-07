@@ -12,7 +12,6 @@ class CharDetector::Engine
       hash[:filepath] = filepath
       hash[:line]     = index + 1
       hash[:columns]  = scanned.map { |e| line.index(e)+1 }
-      hash[:content]  = line.strip
 
       matches << hash
     end
