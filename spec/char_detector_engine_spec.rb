@@ -16,4 +16,12 @@ RSpec.describe CharDetector::Engine do
     ]
     expect(subject.scan(filepath)).to eq(expected)
   end
+
+  it "scans sample4.txt and matches" do
+    filepath = "spec/samples/sample4.txt"
+    expected = [
+      {:filepath=>"spec/samples/sample4.txt", :line=>3, :column=>41, :content=>"'ticket_reports_new_group',      # 工单报表-\b客服组"}
+    ]
+    expect(subject.scan(filepath)).to eq(expected)
+  end
 end
