@@ -18,20 +18,7 @@ RSpec.describe CharDetector::Engine do
     end
   end
 
-  context "when scan a file with one target char exists at line ending(1)" do
-    let(:file) { "spec/samples/sample1.txt" }
-
-    it "gets expected array" do
-      expected = [
-        {:line=>1, :columns=>[11]}
-      ]
-
-      expect(subject.scan(file)).to eq(expected)
-    end
-  end
-
-
-  context "when scan a file with one target char exists at line ending(2)" do
+  context "when scan a file with one target char exists(0x00)" do
     let(:file) { "spec/samples/sample2.txt" }
 
     it "gets expected array" do
@@ -41,9 +28,31 @@ RSpec.describe CharDetector::Engine do
 
       expect(subject.scan(file)).to eq(expected)
     end
+
+    it "is treated as binary file since it contains null byte" do
+      pending "todo"
+      raise "todo"
+    end
   end
 
-  context "when scan a file with two target chars exists in middle of line" do
+  context "when scan a file with one target char exists(0x80)" do
+    let(:file) { "spec/samples/sample4.txt" }
+
+    it "gets expected array" do
+      expected = [
+        {:line=>3, :columns=>[45]}
+      ]
+
+      expect(subject.scan(file)).to eq(expected)
+    end
+
+    it "is treated as normal file since it does not contain null byte" do
+      pending "todo"
+      raise "todo"
+    end
+  end
+
+  context "when scan a file with two target chars exists(0x80/0x00)" do
     let(:file) { "spec/samples/sample3.txt" }
 
     it "gets expected array" do
@@ -56,19 +65,7 @@ RSpec.describe CharDetector::Engine do
     end
   end
 
-  context "when scan a file with one target char exists in middle of line" do
-    let(:file) { "spec/samples/sample4.txt" }
-
-    it "gets expected array" do
-      expected = [
-        {:line=>3, :columns=>[45]}
-      ]
-
-      expect(subject.scan(file)).to eq(expected)
-    end
-  end
-
-  context "when scan a file with three target char exists in middle of line" do
+  context "when scan a file with three target char exists(0x1b/0x00)" do
     let(:file) { "spec/samples/sample5.txt" }
 
     it "gets expected array" do
