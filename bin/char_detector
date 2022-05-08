@@ -15,4 +15,4 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-jj CharDetector::Engine.new.scan options[:file]
+jj CharDetector::Engine.new(file: options[:file]).scan
