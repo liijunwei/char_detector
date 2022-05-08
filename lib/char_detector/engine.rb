@@ -22,9 +22,6 @@ class CharDetector::Engine
     return matches
   end
 
-  def scan_folder
-  end
-
   def trim_newline(line)
     line[...-1]
   end
