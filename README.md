@@ -23,7 +23,7 @@ Ref: [ASCII table , ascii codes](https://theasciicode.com.ar/)
     + result: https://blog.csdn.net/wozhouwang/article/details/101672976 (this one actually is the solution in python, but I didn't understand "control character" yet)
 + I reviewed [character encoding notes/unicode](https://github.com/liijunwei/practice/tree/main/unicode)
 + I found that if I open the abnormal file with vim, the character show up, I google search taught me that they are control characters
-    + search with [[:cntrl:]] in vim
+    + [search with [[:cntrl:]] in vim](https://stackoverflow.com/questions/3844311/how-do-i-replace-or-find-non-printable-characters-in-vim-regex)
 + I found a word called ["POSIX bracket expressions"](https://www.regular-expressions.info/posixbrackets.html)
     + I found the ruby version in [Ruby Core Doc@Regexp](https://ruby-doc.org/core-3.1.2/Regexp.html#class-Regexp-label-Character+Properties)
 + I wrote a temperary ruby script scanning abnormal files
