@@ -5,14 +5,12 @@ class CharDetector::Engine
 
   attr_reader :file
 
-  EXCEPTION_CNTRL_CHARS = ["\t"]
-
   def scan
     matches = []
 
     File.readlines(file).each_with_index do |line, index|
       scanned = trim_newline(line).scan(/\p{Cntrl}/)
-      scanned -= EXCEPTION_CNTRL_CHARS
+      scanned -= trim_newline(line).scan(/\p{Space}/)
 
       next if scanned.empty?
 
@@ -27,6 +25,10 @@ class CharDetector::Engine
   end
 
   def trim_newline(line)
-    line[...-1]
+    if line.end_with?("\n")
+      line[...-1]
+    else
+      line
+    end
   end
 end
