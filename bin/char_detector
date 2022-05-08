@@ -10,9 +10,34 @@ options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: char_detector [options]"
 
+  opts.on("-h", "--help", "Show this message.") do
+    puts opts
+    exit 0
+  end
+
   opts.on("-f FILE", "--file FILE", "file to scan") do |v|
     options[:file] = v
   end
+
+  opts.on("-p", "--pretty", "pretty report.") do
+    options[:pretty] = true
+  end
+
+  opts.on("-v", "--version", "cli version") do |v|
+    options[:version] = v
+  end
 end.parse!
 
-jj CharDetector::Engine.new(file: options[:file]).scan
+info = {}
+info[:file]   = options[:file]
+info[:result] = CharDetector::Engine.new(file: options[:file]).scan
+
+unless info[:result].empty?
+  if options[:pretty]
+    jj info
+  else
+    puts info.to_json
+  end
+end
+
+exit 0
