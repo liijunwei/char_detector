@@ -1,14 +1,22 @@
 # CharDetector
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/char_detector`. To experiment with that code, run `bin/console` for an interactive prompt.
+## What
 
-TODO: Delete this and the text above, and describe your gem
+This tool helps find whether a file contains [ASCII control characters](https://theasciicode.com.ar/), print location info if true.
+
+## Why
+
+It's annoying while working with sublime search. If a file somehow contains a ASCII control characters, it'll be treated as "binary" and won't show the result preview. And this kind of "binary" files tweaks the behavior of text editor.
+
+So I'd like to find these files and get rid of these control characters very much.
 
 Ref: [ASCII table , ascii codes](https://theasciicode.com.ar/)
 
-## Installation
+## Installation(WIP)
 
 Add this line to your application's Gemfile:
+
++ TODO publish this gem to https://rubygems.org/
 
 ```ruby
 gem 'char_detector'
@@ -16,21 +24,40 @@ gem 'char_detector'
 
 And then execute:
 
-    $ bundle install
+```bash
+bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install char_detector
+```bash
+gem install char_detector
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+### demo on detecting in single file
 
-### Demo
+```bash
+bin/char_detector -f spec/samples/sample0.txt
+bin/char_detector -f spec/samples/sample1-newline.txt
+bin/char_detector -f spec/samples/sample2.txt
+bin/char_detector -f spec/samples/sample3.txt
+bin/char_detector -f spec/samples/sample4.txt
+bin/char_detector -f spec/samples/sample5.txt
+```
+
+### demo on detecting in file directory and file pattern
 
 ```bash
 # parallel is GNU parallel to speed up the scanning process
-parallel --timeout 50 --retries 3 "bin/char_detector -f {}" ::: $(find spec/samples -type f)
+# macos: https://formulae.brew.sh/formula/parallel
+
+parallel --progress --timeout 50 --retries 3 "bin/char_detector -f {}" ::: $(find spec/samples -type f)
+# same as
+find spec/samples -type f | parallel --progress --timeout 50 --retries 3 "bin/char_detector -f {}"
+# same as
+find spec/samples -type f | xargs -I {} bin/char_detector -f {} # this one is slow, so GNU parallel is recommended :D
 ```
 
 ## Development
