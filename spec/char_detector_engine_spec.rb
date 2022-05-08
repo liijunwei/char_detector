@@ -8,7 +8,7 @@ RSpec.describe CharDetector::Engine do
     expect(subject).to respond_to(:scan)
   end
 
-  context "when scan a normal file" do
+  context "when scan a normal file with horizontal-tab" do
     let(:file) { "spec/samples/sample0.txt" }
 
     it "gets empty array" do
