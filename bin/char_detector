@@ -24,7 +24,8 @@ OptionParser.new do |opts|
   end
 
   opts.on("-v", "--version", "cli version") do |v|
-    options[:version] = v
+    puts "CharDetector v#{CharDetector::VERSION}"
+    exit(0)
   end
 end.parse!
 
