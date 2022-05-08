@@ -21,8 +21,9 @@ Ref: [ASCII table , ascii codes](https://theasciicode.com.ar/)
     + result: https://exchangetuts.com/sublime-text-find-in-files-gives-binary-in-the-find-results-1640166664392553
     + these two results above are not helpful
     + result: https://blog.csdn.net/wozhouwang/article/details/101672976 (this one actually is the solution in python, but I didn't understand "control character" yet)
-+ I found that if I open the abnormal file with vim, the character show up, I google search taught me that they are control characters
 + I reviewed [character encoding notes/unicode](https://github.com/liijunwei/practice/tree/main/unicode)
++ I found that if I open the abnormal file with vim, the character show up, I google search taught me that they are control characters
+    + search with [[:cntrl:]] in vim
 + I found a word called ["POSIX bracket expressions"](https://www.regular-expressions.info/posixbrackets.html)
     + I found the ruby version in [Ruby Core Doc@Regexp](https://ruby-doc.org/core-3.1.2/Regexp.html#class-Regexp-label-Character+Properties)
 + I wrote a temperary ruby script scanning abnormal files
@@ -76,6 +77,13 @@ bin/char_detector -f spec/samples/sample5.txt
 # parallel is GNU parallel to speed up the scanning process
 # macos: https://formulae.brew.sh/formula/parallel
 
+# with pattern
+parallel --progress --timeout 50 --retries 3 "bin/char_detector -f {}" ::: $(find spec/samples -name \*.txt)
+parallel --progress --timeout 50 --retries 3 "bin/char_detector -f {}" ::: $(find spec/samples -name \*.md)
+parallel --progress --timeout 50 --retries 3 "bin/char_detector -f {}" ::: $(find spec/samples -name \*.rb)
+
+# for all files in directory
+# may have unexpected errors :(
 parallel --progress --timeout 50 --retries 3 "bin/char_detector -f {}" ::: $(find spec/samples -type f)
 # same as
 find spec/samples -type f | parallel --progress --timeout 50 --retries 3 "bin/char_detector -f {}"
