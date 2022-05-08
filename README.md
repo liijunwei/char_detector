@@ -26,6 +26,13 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+### Demo
+
+```bash
+# parallel is GNU parallel to speed up the scanning process
+parallel --timeout 50 --retries 3 "bin/char_detector -f {}" ::: $(find spec/samples -type f)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
