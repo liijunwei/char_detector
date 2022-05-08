@@ -18,6 +18,16 @@ RSpec.describe CharDetector::Engine do
     end
   end
 
+  context "when scan a normal file containing different kinds of new line characters" do
+    let(:file) { "spec/samples/sample1-newline.txt" }
+
+    it "gets empty array" do
+      expected = []
+
+      expect(subject.scan).to eq(expected)
+    end
+  end
+
   context "when scan a file with one target char exists(0x00)" do
     let(:file) { "spec/samples/sample2.txt" }
 

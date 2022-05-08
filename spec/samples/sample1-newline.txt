@@ -1,0 +1,7 @@
+https://stackoverflow.com/questions/15433188/what-is-the-difference-between-r-n-r-and-n
+
+CR(\r) (Carriage Return) → Used as a new line character in Mac OS before X
+LF(\n) (Line Feed) → Used as a new line character in Unix/Mac OS X
+
+CR + LF → Used as a new line character in Windows
+
