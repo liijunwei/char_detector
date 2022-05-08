@@ -10,7 +10,28 @@ It's annoying while working with sublime search. If a file somehow contains a AS
 
 So I'd like to find these files and get rid of these control characters very much.
 
+![](./image/Xnip2022-05-08_13-52-58.png)
+
 Ref: [ASCII table , ascii codes](https://theasciicode.com.ar/)
+
+## Roadmap
+
++ Google keyword: "sublime search result binary"
+    + result: https://stackoverflow.com/questions/26030179/sublime-text-find-in-files-gives-binary-in-the-find-results
+    + result: https://exchangetuts.com/sublime-text-find-in-files-gives-binary-in-the-find-results-1640166664392553
+    + these two results above are not helpful
+    + result: https://blog.csdn.net/wozhouwang/article/details/101672976 (this one actually is the solution in python, but I didn't understand "control character" yet)
++ I found that if I open the abnormal file with vim, the character show up, I google search taught me that they are control characters
++ I reviewed [character encoding notes/unicode](https://github.com/liijunwei/practice/tree/main/unicode)
++ I found a word called ["POSIX bracket expressions"](https://www.regular-expressions.info/posixbrackets.html)
+    + I found the ruby version in [Ruby Core Doc@Regexp](https://ruby-doc.org/core-3.1.2/Regexp.html#class-Regexp-label-Character+Properties)
++ I wrote a temperary ruby script scanning abnormal files
++ I setup a ruby gem and TDD my script
+    + bundle gem char_detector
++ Test and fix and refactor
+
++ TODO refactor
++ TODO add features(If I have more requirements)
 
 ## Installation(WIP)
 
@@ -47,6 +68,8 @@ bin/char_detector -f spec/samples/sample4.txt
 bin/char_detector -f spec/samples/sample5.txt
 ```
 
+![](./image/Xnip2022-05-08_14-10-52.png)
+
 ### demo on detecting in file directory and file pattern
 
 ```bash
@@ -59,6 +82,7 @@ find spec/samples -type f | parallel --progress --timeout 50 --retries 3 "bin/ch
 # same as
 find spec/samples -type f | xargs -I {} bin/char_detector -f {} # this one is slow, so GNU parallel is recommended :D
 ```
+![](./image/Xnip2022-05-08_14-11-04.png)
 
 ## Development
 
