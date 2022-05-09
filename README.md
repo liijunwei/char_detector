@@ -33,13 +33,12 @@ Ref: [ASCII table , ascii codes](https://theasciicode.com.ar/)
 
 + TODO refactor
 + TODO add features(If I have more requirements)
-+ TODO format output(refer to rubocop's output) Thanks Freebird
++ TODO [format output(refer to rubocop's output) Thanks Freebird](https://github.com/liijunwei/char_detector/issues/5)
++ TODO [Improve compatibility](https://github.com/liijunwei/char_detector/issues/4)
 
 ## Installation(WIP)
 
 Add this line to your application's Gemfile:
-
-+ TODO publish this gem to https://rubygems.org/
 
 ```ruby
 gem 'char_detector'
