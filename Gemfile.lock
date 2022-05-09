@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    char_detector (0.1.1)
+    char_detector (0.1.2)
 
 GEM
   remote: https://rubygems.org/
