@@ -31,10 +31,6 @@ Ref: [ASCII table , ascii codes](https://theasciicode.com.ar/)
     + bundle gem char_detector
 + Test and fix and refactor
 
-+ TODO refactor
-+ TODO add features(If I have more requirements)
-+ TODO [format output(refer to rubocop's output) Thanks Freebird](https://github.com/liijunwei/char_detector/issues/5)
-
 ## Installation(WIP)
 
 Add this line to your application's Gemfile:
