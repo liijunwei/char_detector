@@ -28,6 +28,7 @@ GEM
     rspec-support (3.11.0)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
   x86_64-linux
 
@@ -36,9 +37,6 @@ DEPENDENCIES
   pry
   rake
   rspec
-
-RUBY VERSION
-   ruby 3.1.1p18
 
 BUNDLED WITH
    2.3.7

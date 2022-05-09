@@ -26,7 +26,7 @@ class CharDetector::Engine
 
   def trim_newline(line)
     if line.end_with?("\n")
-      line[...-1]
+      line[0..-2]
     else
       line
     end
