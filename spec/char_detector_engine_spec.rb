@@ -1,5 +1,3 @@
-require "char_detector"
-
 RSpec.describe CharDetector::Engine do
   subject { described_class.new(file: file) }
   let(:file) { "foobar" }

@@ -1,4 +1,5 @@
 require "char_detector/version"
+require "char_detector/line"
 require "char_detector/engine"
 require "char_detector/cli"
 
