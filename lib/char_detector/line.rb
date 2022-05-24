@@ -13,7 +13,7 @@ module CharDetector
 
       hash = {}
       hash[:line]    = number
-      hash[:columns] = scanned_columns
+      hash[:columns] = matched_columns
 
       return hash
     end
@@ -32,7 +32,7 @@ module CharDetector
       trimmed_newline.scan(/\p{Space}/)
     end
 
-    def scanned_columns
+    def matched_columns
       matched_chars.map { |e| content.index(e)+1 }
     end
 
