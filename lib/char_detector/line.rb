@@ -1,18 +1,18 @@
 module CharDetector
   class Line
-    def initialize(line_no, content, pattern)
-      @line_no = line_no
+    def initialize(number, content, pattern)
+      @number  = number
       @content = content
       @pattern = pattern
     end
 
-    attr_reader :line_no, :content, :pattern
+    attr_reader :number, :content, :pattern
 
     def scanline
       return nil if matched_chars.empty? # TODO null object pattern?
 
       hash = {}
-      hash[:line]    = line_no
+      hash[:line]    = number
       hash[:columns] = scanned_columns
 
       return hash
