@@ -8,7 +8,7 @@ module CharDetector
     attr_reader :line_no, :content
 
     def scanline
-      return nil if scanned_content.empty? # TODO null object pattern?
+      return nil if matched_chars.empty? # TODO null object pattern?
 
       hash = {}
       hash[:line]    = line_no
@@ -19,15 +19,20 @@ module CharDetector
 
     private
 
-    def scanned_content
-      scanned = trimmed_newline.scan(/\p{Cntrl}/)
-      scanned -= trimmed_newline.scan(/\p{Space}/)
+    def matched_chars
+      all_matched_chars - matched_spaces
+    end
 
-      return scanned
+    def all_matched_chars
+      trimmed_newline.scan(/\p{Cntrl}/)
+    end
+
+    def matched_spaces
+      trimmed_newline.scan(/\p{Space}/)
     end
 
     def scanned_columns
-      return scanned_content.map { |e| content.index(e)+1 }
+      matched_chars.map { |e| content.index(e)+1 }
     end
 
     def trimmed_newline
