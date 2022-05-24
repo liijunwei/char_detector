@@ -10,7 +10,7 @@ module CharDetector
       matches = []
 
       File.readlines(file).each_with_index do |line, index|
-        if result = Line.new(index+1, line).scanline
+        if result = Line.new(index+1, line, /\p{Cntrl}/).scanline
           matches << result
         end
       end

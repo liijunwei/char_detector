@@ -1,11 +1,12 @@
 module CharDetector
   class Line
-    def initialize(line_no, content)
+    def initialize(line_no, content, pattern)
       @line_no = line_no
       @content = content
+      @pattern = pattern
     end
 
-    attr_reader :line_no, :content
+    attr_reader :line_no, :content, :pattern
 
     def scanline
       return nil if matched_chars.empty? # TODO null object pattern?
@@ -24,7 +25,7 @@ module CharDetector
     end
 
     def all_matched_chars
-      trimmed_newline.scan(/\p{Cntrl}/)
+      trimmed_newline.scan(pattern)
     end
 
     def matched_spaces
