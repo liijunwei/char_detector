@@ -36,6 +36,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "flog", "~> 4.6", ">= 4.6.5"
+  spec.add_development_dependency "flay", "~> 2.13"
+
   spec.executables   = ["char_detector"]
   spec.require_paths = ["lib"]
 end
