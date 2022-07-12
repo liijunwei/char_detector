@@ -58,6 +58,9 @@ gem install char_detector
 ### demo on detecting in single file
 
 ```bash
+# eaiser
+grep -a '[[:cntrl:]]' spec/samples/*.txt
+
 bin/char_detector -f spec/samples/sample0.txt
 bin/char_detector -f spec/samples/sample1-newline.txt
 bin/char_detector -f spec/samples/sample2.txt
