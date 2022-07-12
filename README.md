@@ -1,3 +1,5 @@
++ TODO enhance refering to https://ruby-doc.org/core-3.1.2/Regexp.html#class-Regexp-label-Character+Properties
+
 # CharDetector
 
 ## What
