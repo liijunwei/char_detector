@@ -62,6 +62,16 @@ gem install char_detector
 # https://www.tecmint.com/linux-grep-commands-character-classes-bracket-expressions/
 grep -a '[[:cntrl:]]' spec/samples/*.txt
 
+# google keywords:
+# grep Printable characters
+# even better
+# https://stackoverflow.com/questions/25720471/how-to-find-non-printable-characters-in-the-file/25724083#25724083
+grep -a '[^[:print:][:blank:]]' spec/samples/*
+
+# keyword/hint
+# how do I grep xxx in file ?
+# how do I inverse grep xxx in file?
+
 bin/char_detector -f spec/samples/sample0.txt
 bin/char_detector -f spec/samples/sample1-newline.txt
 bin/char_detector -f spec/samples/sample2.txt
