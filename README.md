@@ -59,6 +59,7 @@ gem install char_detector
 
 ```bash
 # eaiser
+# https://www.tecmint.com/linux-grep-commands-character-classes-bracket-expressions/
 grep -a '[[:cntrl:]]' spec/samples/*.txt
 
 bin/char_detector -f spec/samples/sample0.txt
