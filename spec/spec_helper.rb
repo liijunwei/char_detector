@@ -1,3 +1,8 @@
+if ENV.fetch('COVERAGE', 'f').start_with? 't'
+  require 'simplecov'
+  SimpleCov.start
+end
+
 require "bundler/setup"
 require "pry"
 require "char_detector"
