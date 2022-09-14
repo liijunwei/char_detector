@@ -9,7 +9,7 @@ module CharDetector
     attr_reader :number, :content, :pattern
 
     def scanline
-      return nil if matched_chars.empty? # TODO null object pattern?
+      return nil if matched_chars.empty?
 
       hash = {}
       hash[:line]    = number

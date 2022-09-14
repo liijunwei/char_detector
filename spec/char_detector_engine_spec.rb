@@ -39,10 +39,7 @@ RSpec.describe CharDetector::Engine do
       expect(subject.scan).to eq(expected)
     end
 
-    it "is treated as binary file since it contains null byte" do
-      pending "todo"
-      raise "todo"
-    end
+    it "is treated as binary file since it contains null byte"
   end
 
   context "when scan a file with one target char exists(0x80)" do
@@ -56,10 +53,7 @@ RSpec.describe CharDetector::Engine do
       expect(subject.scan).to eq(expected)
     end
 
-    it "is treated as normal file since it does not contain null byte" do
-      pending "todo"
-      raise "todo"
-    end
+    it "is treated as normal file since it does not contain null byte"
   end
 
   context "when scan a file with two target chars exists(0x80/0x00)" do
